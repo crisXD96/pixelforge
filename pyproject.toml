@@ -1,0 +1,32 @@
+# PROPUESTA: las dependencias requieren revisión del equipo antes de instalarse.
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pixelforge"
+version = "0.1.0"
+description = "Pipeline de procesamiento de imágenes: thumbnails, viñeta, watermark y galería web."
+readme = "docs/README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "Pillow>=10.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+]
+
+[project.scripts]
+pixelforge = "pixelforge.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+pixelforge = ["templates/*"]
+
+[tool.pytest.ini_options]
+testpaths = ["__tests__"]
+pythonpath = ["src"]

@@ -1,0 +1,20 @@
+# --- Entradas obligatorias de la organización (no eliminar) ---
+.secrets/
+*.env
+certs/
+prod.env
+
+# --- Datos del pipeline ---
+input/*
+!input/.gitkeep
+output/
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/

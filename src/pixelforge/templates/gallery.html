@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <meta name="theme-color" content="#08080c">
+  <title>$title</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <span class="eyebrow"><span class="dot" aria-hidden="true"></span>Pipeline de imágenes · Pillow</span>
+    <h1>Galería <span class="brand">PixelForge</span></h1>
+    <p class="lead">Thumbnails con viñeta y watermark. Toca una imagen para verla en grande.</p>
+    <ul class="stats">
+      <li><strong>$count</strong> $count_noun</li>
+      <li>Thumbnails <strong>$thumb_size</strong></li>
+      <li>Generada <strong>$generated</strong></li>
+    </ul>
+  </header>
+
+  <main>
+    <ul class="gallery">
+$cards
+    </ul>
+  </main>
+
+$lightboxes
+
+  <footer class="site-footer">
+    <p>Generado con <span class="brand">PixelForge</span> · Python + Pillow</p>
+  </footer>
+
+  <script>
+    // Mejora opcional: la galería funciona sin JavaScript (visor con :target).
+    // Esto solo añade atajos de teclado: Esc cierra, flechas navegan.
+    document.addEventListener("keydown", function (e) {
+      var open = document.querySelector(".lightbox:target");
+      if (!open) return;
+      var sel = { Escape: ".lb-close", ArrowLeft: ".lb-prev", ArrowRight: ".lb-next" }[e.key];
+      var link = sel && open.querySelector(sel);
+      if (link) { e.preventDefault(); link.click(); }
+    });
+  </script>
+</body>
+</html>
